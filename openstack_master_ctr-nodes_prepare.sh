@@ -119,6 +119,9 @@ function set_selinx ()
 function make_openstack_yumrepo () {
      #cd /etc/yum.repos.d && rm -rf CentOS-Base.repo.bk &&  mv CentOS-Base.repo CentOS-Base.repo.bk   && wget http://mirrors.163.com/.help/CentOS7-Base-163.repo  
      #remove all repo dependency external repository and just use local yum repo
+
+	 return 
+	 
      
      rm -rf /etc/yum.repos.d/*
      fn_log "rm -rf  /etc/yum.repos.d/* "
