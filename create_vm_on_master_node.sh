@@ -475,6 +475,7 @@ else
 	create_base_vm
 fi
 
+
 #define xml file
 if [ -f /etc/openstack-kilo_tag/define_vm_xml.tag ]
 	then
