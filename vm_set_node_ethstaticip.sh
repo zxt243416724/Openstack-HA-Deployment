@@ -124,6 +124,7 @@ EOF
 }
 
 #----------------------------------------------------
+#1:主节点的初始
 if  [ -f /etc/sysconfig/network-scripts/ifcfg-eth0 ]
 then
 	echo "ifcfg-eth0 exists"

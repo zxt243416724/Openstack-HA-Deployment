@@ -1,7 +1,10 @@
 #/usr/bin/bash
 #this script will change default ifcfg-enoxxxx to ifcfg-ethx 
 
-ls -l /etc/sysconfig/network-scripts|awk  '/ifcfg-eno[0-9]*/ {print $9}' > default_nic_name.txt
+#ls -l /etc/sysconfig/network-scripts|awk  '/ifcfg-eno[0-9]*/ {print $9}' > default_nic_name.txt
+#centos7.8的 版本是ifcfg-ens 开始的
+ls -l /etc/sysconfig/network-scripts|awk  '/ifcfg-ens[0-9]*/ {print $9}' > default_nic_name.txt
+
 i=0
 cat default_nic_name.txt| while read line
 do
