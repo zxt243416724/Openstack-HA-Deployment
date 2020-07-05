@@ -250,7 +250,7 @@ EOF
 }
 
 #创建image并制作VM
-function create_base_vm1()
+function create_base_vm()
 {
 	yum install -y virt-install 
 	mkdir -p $vm_dir
@@ -285,7 +285,7 @@ function create_base_vm1()
 
 }
 
-function create_base_vm()
+function create_base_vm1()
 {
 	yum install -y virt-install 
 	mkdir -p $vm_dir
