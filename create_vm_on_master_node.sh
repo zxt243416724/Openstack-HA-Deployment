@@ -304,7 +304,7 @@ function create_base_vm()
     --os-type linux \
     --os-variant rhel7 \
     --hvm \
-    --cdrom  /data/centos-7.2.1511-x86_64-DVD.iso \
+    --cdrom=/data/centos-7.2.1511-x86_64-DVD.iso \
     --graphics vnc,listen='0.0.0.0' \
      --noautoconsole
 
@@ -313,9 +313,8 @@ function create_base_vm()
     sleep 420
     echo `date "+Y%-M%-D% H%:M%:S%"` > /etc/openstack-kilo_tag/create_base_vm.tag
 
-
 }
-*/
+
 
 #修改vm's xml file，.xml文件是虚拟机资源定义文件，修改xml不是修改镜像本身，而是修改启动镜像的资源定义
 #将之前生成的image拷贝到/localvms目录，并在此命令定义一个xml虚拟机文件，通过--base参数重新生成一个镜像。
