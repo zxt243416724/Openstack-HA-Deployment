@@ -67,7 +67,7 @@ function set_master_eth2()
 {
 master_node_name=$(/usr/bin/bash readini.sh cluster_variables.ini default slave3)
 NAMEHOST=$master_node_name
-host_ip=$(/usr/bin/bash readini.sh cluster_variables.ini default ip_slave3)
+host_ip=$(/usr/bin/bash readini.sh cluster_variables.ini default ip_slave2)
 CUR_PATH=$PWD
 
 #获取eth2接口的mac地址(hostnoly mode)
