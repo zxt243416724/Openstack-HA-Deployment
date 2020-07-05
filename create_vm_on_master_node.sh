@@ -255,6 +255,8 @@ function create_base_vm1()
 	yum install -y virt-install 
 	mkdir -p $vm_dir
   echo "create_base_vm"$vm_disk
+  echo "rpm_http="$rpm_http
+  
 	qemu-img create -f qcow2 -o preallocation=metadata ${vm_dir}/$vm_base $vm_disk
 
 # --disk path=${vm_dir}/$vm_base,format=qcow2,cache=none \
