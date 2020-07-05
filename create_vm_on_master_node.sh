@@ -250,7 +250,7 @@ EOF
 }
 
 #创建image并制作VM
-function create_base_vm()
+function create_base_vm1()
 {
 	yum install -y virt-install 
 	mkdir -p $vm_dir
@@ -282,6 +282,40 @@ function create_base_vm()
 
 
 }
+
+function create_base_vm()
+{
+	yum install -y virt-install 
+	mkdir -p $vm_dir
+  echo "create_base_vm"$vm_disk
+	qemu-img create -f qcow2 -o preallocation=metadata ${vm_dir}/$vm_base $vm_disk
+
+# --disk path=${vm_dir}/$vm_base,format=qcow2,cache=none \
+	virt-install --connect=qemu:///system \
+    --network=bridge:$int_br_name,mac=$int_mac \
+    --initrd-inject=./virt-base.ks \
+    --extra-args="ks=file:/virt-base.ks console=tty0 console=ttyS0,115200 serial rd_NO_PLYMOUTH" \
+    --name=centos7-base \
+    --disk path=${vm_dir}/$vm_base,device=disk,bus=virtio,format=qcow2 \ 
+    --ram $vm_ram \
+    --vcpus=$vm_cpu \
+    --check-cpu \
+    --accelerate \
+    --os-type linux \
+    --os-variant rhel7 \
+    --hvm \
+    --cdrom  /data/centos-7.2.1511-x86_64-DVD.iso \
+    --graphics vnc,listen='0.0.0.0' \
+     --noautoconsole
+
+    fn_log "virt-install create vm"
+
+    sleep 420
+    echo `date "+Y%-M%-D% H%:M%:S%"` > /etc/openstack-kilo_tag/create_base_vm.tag
+
+
+}
+*/
 
 #修改vm's xml file，.xml文件是虚拟机资源定义文件，修改xml不是修改镜像本身，而是修改启动镜像的资源定义
 #将之前生成的image拷贝到/localvms目录，并在此命令定义一个xml虚拟机文件，通过--base参数重新生成一个镜像。
