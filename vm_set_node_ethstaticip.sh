@@ -128,7 +128,7 @@ if  [ -f /etc/sysconfig/network-scripts/ifcfg-eth0 ]
 then
 	echo "ifcfg-eth0 exists"
 else
-	 set_master_eth0()
+	 set_master_eth0
 fi
 
 
@@ -136,7 +136,7 @@ if  [ -f /etc/sysconfig/network-scripts/ifcfg-eth1 ]
 then
 	echo "ifcfg-eth1 exists"
 else
-	 set_master_eth1()
+	 set_master_eth1
 fi
 
 
@@ -144,7 +144,7 @@ if  [ -f /etc/sysconfig/network-scripts/ifcfg-eth2 ]
 then
 	echo "ifcfg-eth2 exists"
 else
-	 set_master_eth2()
+	 set_master_eth2
 fi
 
 
@@ -152,6 +152,6 @@ if  [ -f /etc/sysconfig/network-scripts/ifcfg-eth3 ]
 then
 	echo "ifcfg-eth3 exists"
 else
-	 set_master_eth3()
+	 set_master_eth3
 fi
 #--------------------------------------------------
