@@ -425,8 +425,8 @@ fi
 
 #create base image and vm
 log_info "begin check base image and vm"
-rm -rf /etc/openstack-kilo_tag/create_base_vm.tag
-rm -rf ${vm_dir}/$vm_base 
+#rm -rf /etc/openstack-kilo_tag/create_base_vm.tag
+#rm -rf ${vm_dir}/$vm_base 
 
 if [ -f /etc/openstack-kilo_tag/create_base_vm.tag ] || [ -f ${vm_dir}/$vm_base ]
 	then
