@@ -304,7 +304,7 @@ function create_base_vm()
     --os-type linux \
     --os-variant rhel7 \
     --hvm \
-    --cdrom=/data/centos-7.2.1511-x86_64-DVD.iso \
+    --cdrom="/data/centos-7.2.1511-x86_64-DVD.iso" \
     --graphics vnc,listen='0.0.0.0' \
      --noautoconsole
 
