@@ -257,13 +257,13 @@ function create_base_vm()
   echo "create_base_vm"$vm_disk
 	qemu-img create -f qcow2 -o preallocation=metadata ${vm_dir}/$vm_base $vm_disk
 
-
+# --disk path=${vm_dir}/$vm_base,format=qcow2,cache=none \
 	virt-install --connect=qemu:///system \
     --network=bridge:$int_br_name,mac=$int_mac \
     --initrd-inject=./virt-base.ks \
     --extra-args="ks=file:/virt-base.ks console=tty0 console=ttyS0,115200 serial rd_NO_PLYMOUTH" \
     --name=centos7-base \
-    --disk path=${vm_dir}/$vm_base,format=qcow2,cache=none \
+    --disk path=${vm_dir}/$vm_base,device=disk,bus=virtio,format=qcow2 \ 
     --ram $vm_ram \
     --vcpus=$vm_cpu \
     --check-cpu \
@@ -425,8 +425,8 @@ fi
 
 #create base image and vm
 log_info "begin check base image and vm"
-#rm -rf /etc/openstack-kilo_tag/create_base_vm.tag
-#rm -rf ${vm_dir}/$vm_base 
+rm -rf /etc/openstack-kilo_tag/create_base_vm.tag
+rm -rf ${vm_dir}/$vm_base 
 
 if [ -f /etc/openstack-kilo_tag/create_base_vm.tag ] || [ -f ${vm_dir}/$vm_base ]
 	then
