@@ -125,17 +125,25 @@ EOF
 
 
 if [ ! -f "/etc/sysconfig/network-scripts/ifcfg-eth0" ];then
-   set_master_eth0()
+  set_master_eth0()
+else
+  echo "ifcfg-eth0 exists"
 fi
 
 if [ ! -f "/etc/sysconfig/network-scripts/ifcfg-eth1" ];then
    set_master_eth1()
+else
+  echo "ifcfg-eth1 exists"
 fi
 
 if [ ! -f "/etc/sysconfig/network-scripts/ifcfg-eth2" ];then
    set_master_eth2()
+else
+  echo "ifcfg-eth2 exists"
 fi
 
 if [ ! -f "/etc/sysconfig/network-scripts/ifcfg-eth3" ];then
    set_master_eth3()
+else
+  echo "ifcfg-eth3 exists"
 fi
