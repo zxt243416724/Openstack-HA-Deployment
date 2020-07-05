@@ -296,7 +296,7 @@ function create_base_vm()
     --initrd-inject=./virt-base.ks \
     --extra-args="ks=file:/virt-base.ks console=tty0 console=ttyS0,115200 serial rd_NO_PLYMOUTH" \
     --name=centos7-base \
-    --disk path=${vm_dir}/$vm_base,device=disk,bus=virtio,format=qcow2 \ 
+    --disk path=${vm_dir}/$vm_base,format=qcow2,cache=none \
     --ram $vm_ram \
     --vcpus=$vm_cpu \
     --check-cpu \
