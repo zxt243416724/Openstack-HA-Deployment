@@ -294,7 +294,6 @@ function create_base_vm()
 	virt-install --connect=qemu:///system \
     --network=bridge:$int_br_name,mac=$int_mac \
     --initrd-inject=./virt-base.ks \
-    --extra-args="ks=file:/virt-base.ks console=tty0 console=ttyS0,115200 serial rd_NO_PLYMOUTH" \
     --name=centos7-base \
     --disk path=${vm_dir}/$vm_base,format=qcow2,cache=none \
     --ram $vm_ram \
