@@ -15,7 +15,7 @@ maceth2=$(cat /sys/class/net/eth2/address)
 
 #主节点为eth2接口
 cat > /etc/sysconfig/network-scripts/ifcfg-eth2 << EOF
-HWADDR=$(maceth2)  
+HWADDR=${maceth2}
 TYPE="Ethernet"  
 BOOTPROTO="static"  
 DEFROUTE="yes"  
@@ -31,7 +31,7 @@ IPV6_FAILURE_FATAL="no"
 NAME="eth2"
 DEVICE="eth2"  
 ONBOOT="yes"
-IPADDR=$(host_ip)
+IPADDR=${host_ip}
 NETMASK=255.255.255.0
 DNS1=192.168.142.1
 EOF
