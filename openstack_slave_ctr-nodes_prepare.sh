@@ -107,6 +107,9 @@ function set_selinx ()
 
 #make local yum repository
 function make_openstack_yumrepo () {
+
+	return 
+	
      NFS_SERVER=$1
      service nfs start && service rpcbind start
      systemctl enable nfs-server.service
